@@ -17,6 +17,8 @@ To see the application copy and paste into a web browser any of the following ur
 
 :warning: if you are using the https protocol your web browser may block the application, just configure the browser to trust the self-signed certificate.
 
+:warning: Supported browsers Chrome and Firefox
+
 ## ** Nice to have * ##
 - Track the jwt token to invalidate it if needed.
 - Support several rooms.
