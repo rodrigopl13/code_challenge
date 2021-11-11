@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New User</title>
+    <link href="assets/css/form.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="alert-message" id="alert-signup"> </div>
+<div class="form-block">
+    <form id="signup-form" action="/v1/signup" method="post">
+    <h1>New User</h1>
+    First Name
+    <input type="text" id="firstname" name="first_name" required />
+    LastName
+    <input type="text" id="lastname" name="last_name" required />
+    UserName
+    <input type="text" value=""  id="username" name="user_name" required />
+    Password
+    <input type="password" value="" id="password" name="password" required/>
+    <button>Create</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+    <link rel="stylesheet" href="assets/css/chat.css" />
+</head>
+<body>
+<div class="alert-message" id="alert-login"> </div>
+<div id="wrapper">
+    <div id="menu">
+        <p class="welcome" id="welcome"><b></b></p>
+        <p class="logout"><a id="exit" href="">Exit Chat</a></p>
+    </div>
+
+    <div id="chatbox"></div>
+
+    <form id="chat-form" name="message" action="">
+        <input name="usermsg" type="text" id="usermsg" />
+        <input name="submitmsg" type="submit" id="submitmsg" value="Send" />
+    </form>
+</div>
+<script src="assets/js/main.js"></script>
+<script type="text/javascript">
+    document.onload = onLoadMain();
+</script>
+</body>
+</html>

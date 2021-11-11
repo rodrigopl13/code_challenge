@@ -1,0 +1,40 @@
+version: "3.9"
+services:
+  message-broker:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbit-broker
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - ${HOME}/rabbitmq-data/data/:/var/lib/rabbitmq
+      - ${HOME}/rabbitmq-data/log/:/var/log/rabbitmq
+    networks:
+      - dev-network
+  postgres:
+    image: postgres:latest
+    container_name: postgres-container
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ${HOME}/postgres-data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - dev-network
+  api:
+    build: .
+    restart: on-failure
+    depends_on:
+      - postgres
+      - message-broker
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - dev-network
+
+networks:
+  dev-network:
+    driver: bridge

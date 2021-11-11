@@ -1,0 +1,12 @@
+---
+crt-file: localhost.crt
+key-file: localhost.key
+stooq-url: https://stooq.com/q/l/?s=%s&f=sd2t2ohlcv&h&e=csv
+database:
+  name: challenge_chat
+  host: postgres-container
+  port: 5432
+  user: postgres
+broker:
+  amqp-url: amqp://guest:guest@rabbit-broker:5672/
+  stock-queue-name: stockBotQueue
