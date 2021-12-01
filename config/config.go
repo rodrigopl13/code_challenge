@@ -7,8 +7,8 @@ import (
 )
 
 type Configs struct {
-	CrtFile        string   `mapstructure:"crt-file"`
-	Keyfile        string   `mapstructure:"key-file"`
+	//CrtFile        string   `mapstructure:"crt-file"`
+	//Keyfile        string   `mapstructure:"key-file"`
 	StooqURLString string   `mapstructure:"stooq-url"`
 	JwtSecretKey   string   `mapstructure:"SECRET_KEY"`
 	Repo           Database `mapstructure:"database"`

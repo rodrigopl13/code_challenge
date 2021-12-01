@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"crypto/tls"
 	"fmt"
 	"log"
 	"net/http"
@@ -31,25 +30,25 @@ func main() {
 
 	router := server.Setup(rabbit, db, tokenService, configs.StooqURLString)
 
-	crt, _ := tls.LoadX509KeyPair(configs.CrtFile, configs.Keyfile)
+	//crt, _ := tls.LoadX509KeyPair(configs.CrtFile, configs.Keyfile)
 	srv := &http.Server{
-		Addr:    ":443",
+		Addr:    ":80",
 		Handler: router,
-		TLSConfig: &tls.Config{
-			Certificates: []tls.Certificate{crt},
-		},
+		//TLSConfig: &tls.Config{
+		//	Certificates: []tls.Certificate{crt},
+		//},
 	}
 
 	go func() {
-		if err := srv.ListenAndServeTLS("", ""); err != nil && err != http.ErrServerClosed {
+		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			panic(fmt.Sprintf("Fatal error starting server: %v \n", err))
 		}
 	}()
-	go func() {
-		if err := http.ListenAndServe(":80", router); err != nil && err != http.ErrServerClosed {
-			panic(fmt.Sprintf("Fatal error starting server: %v \n", err))
-		}
-	}()
+	//go func() {
+	//	if err := http.ListenAndServe(":80", router); err != nil && err != http.ErrServerClosed {
+	//		panic(fmt.Sprintf("Fatal error starting server: %v \n", err))
+	//	}
+	//}()
 	<-ctx.Done()
 	stop()
 

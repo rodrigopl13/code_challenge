@@ -5,7 +5,8 @@ if (!token) {
     window.location.replace(`${location.protocol}//${location.hostname}/v1`);
 }
 const tokenWords = token.split(/(\s+)/).filter( function(e) { return e.trim().length > 0; } );
-const wsUrl = "wss://localhost/v1/ws?bearer="+tokenWords[1];
+//const wsUrl = "wss://localhost/v1/ws?bearer="+tokenWords[1]; ENCRYPTED PROTOCOL
+const wsUrl = "ws://localhost/v1/ws?bearer="+tokenWords[1];
 let wsSocket = new WebSocket(wsUrl);
 const messagesURL = `${location.protocol}//${location.hostname}/v1/message`
 

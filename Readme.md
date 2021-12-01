@@ -11,11 +11,8 @@ the command will start loading the containers, just wait for the load to be fini
 To see the application copy and paste into a web browser any of the following urls:
 
 - http://localhost/v1
-- https://localhost/v1
 
 :closed_lock_with_key: An user must be created to access the chat application.
-
-:warning: if you are using the https protocol your web browser may block the application, just configure the browser to trust the self-signed certificate.
 
 :warning: Supported browsers Chrome and Firefox
 
